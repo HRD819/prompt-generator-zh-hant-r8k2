@@ -1,0 +1,5 @@
+dist/
+.qa/
+original/
+交接記錄檔.md
+node_modules/

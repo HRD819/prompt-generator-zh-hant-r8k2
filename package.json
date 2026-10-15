@@ -1,0 +1,10 @@
+{
+  "name": "prompt-generator-zh-hant",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "build": "node scripts/build.js",
+    "ci": "npm test && npm run build"
+  }
+}

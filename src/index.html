@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="googlebot" content="noindex, nofollow, noarchive">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#edf2fa">
+  <title>Prompt 生成器</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳至主要內容</a>
+  <main id="main" class="shell">
+    <header>
+      <p class="eyebrow">靈感整理工具</p>
+      <h1>Prompt 生成器</h1>
+      <p class="lead">輸入一個想法，整理成可以直接使用的提示範本。</p>
+    </header>
+
+    <section class="panel" aria-labelledby="input-title">
+      <h2 id="input-title">你的想法</h2>
+      <label for="prompt-input">想完成什麼事？</label>
+      <textarea id="prompt-input" rows="5" maxlength="3000" placeholder="例如：寫一篇給朋友的生日祝福，語氣真誠、不要太正式。" aria-describedby="input-help"></textarea>
+      <p id="input-help" class="hint">可加入對象、用途、語氣、長度或想避開的內容。</p>
+
+      <details id="gemini-options">
+        <summary>選用 Gemini 產生更個人化的範本</summary>
+        <div class="details-content">
+          <label for="api-key">你的 Gemini API 金鑰</label>
+          <input id="api-key" type="password" autocomplete="off" spellcheck="false" placeholder="僅供這個頁面當次使用">
+          <p class="hint">填入後，「生成 Prompt」會將想法傳送至 Google Gemini。金鑰只保留在此頁面，不儲存於網站或瀏覽器儲存空間。請勿在共用裝置輸入金鑰。</p>
+          <p class="hint">不填金鑰也能產生本機範本；重新整理不會保留輸入內容。</p>
+        </div>
+      </details>
+
+      <div class="actions">
+        <button id="generate-button" class="primary" type="button"><span id="generate-text">生成 Prompt</span><span id="spinner" class="spinner" hidden aria-hidden="true"></span></button>
+        <button id="clear-button" class="secondary" type="button">清除</button>
+      </div>
+      <p id="message" class="message" role="status" aria-live="polite"></p>
+    </section>
+
+    <section id="output-section" class="panel output-panel" aria-labelledby="output-title">
+      <div class="output-heading"><h2 id="output-title" tabindex="-1">生成的 Prompt</h2><button id="copy-button" class="secondary small" type="button" hidden>複製內容</button></div>
+      <div id="output" class="output" aria-live="polite">生成後會顯示在這裡。</div>
+    </section>
+    <footer>本網站不收集作答或金鑰。使用 Gemini 時，請求會直接從你的瀏覽器送至 Google。</footer>
+  </main>
+</body>
+</html>
